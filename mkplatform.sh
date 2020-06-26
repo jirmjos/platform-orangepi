@@ -33,14 +33,14 @@ cp sun8i-h3-i2s0.* ${P}/boot/overlay-user
 
 cp ${A}/config/bootscripts/boot-sunxi.cmd ${P}/boot/boot.cmd
 mkimage -c none -A arm -T script -d ${P}/boot/boot.cmd ${P}/boot/boot.scr
-touch ${P}/boot/.${B}
+touch ${P}/boot/.next
 
 echo "verbosity=1
 logo=disabled
 console=both
 disp_mode=1920x1080p60
 overlay_prefix=sun8i-h3
-overlays=i2c0
+overlays=i2c0 analog-codec
 rootdev=/dev/mmcblk0p2
 rootfstype=ext4
 user_overlays=sun8i-h3-i2s0
