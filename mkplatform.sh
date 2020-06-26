@@ -2,10 +2,9 @@
 C=`pwd`
 A=../armbian
 P=orangepi$1
-B=legacy
+B=current
 
-cp kernel-sunxi-legacy.patch ${A}/userpatches/kernel/sunxi-next/
-cp ${A}/config/kernel/linux-sunxi-legacy.config ${A}/userpatches
+cp kernel-sunxi-legacy.patch ${A}/userpatches/kernel/sunxi-current/
 cd ${A}
 
 ./compile.sh KERNEL_ONLY=yes BOARD=${P} BRANCH=${B} RELEASE=jessie KERNEL_CONFIGURE=no EXTERNAL=yes BUILD_KSRC=no BUILD_DESKTOP=no
