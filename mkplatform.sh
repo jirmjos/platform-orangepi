@@ -31,6 +31,7 @@ mv ${P}/boot/vmlinuz* ${P}/boot/zImage
 
 mkdir ${P}/boot/overlay-user
 cp sun8i-h3-i2s0.* ${P}/boot/overlay-user
+cp gpio-rotary.* ${P}/boot/overlay-user
 
 cp ${A}/config/bootscripts/boot-sunxi.cmd ${P}/boot/boot.cmd
 mkimage -c none -A arm -T script -d ${P}/boot/boot.cmd ${P}/boot/boot.scr
@@ -40,11 +41,11 @@ echo "verbosity=1
 logo=disabled
 console=both
 disp_mode=1920x1080p60
-overlay_prefix=sun8i-h3
+overlay_prefix=sun8i-h3 gpio-rotary
 overlays=i2c0
 rootdev=/dev/mmcblk0p2
 rootfstype=ext4
-user_overlays=sun8i-h3-i2s0
+user_overlays=sun8i-h3-i2s0 gpio-rotary
 usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u
 extraargs=imgpart=/dev/mmcblk0p2 imgfile=/volumio_current.sqsh" >> ${P}/boot/armbianEnv.txt
 
